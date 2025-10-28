@@ -2,11 +2,15 @@
 
 import sys
 
+if len(sys.argv) != 3:
+    print("wrong arguments")
+    print("usage: ./bin2c.py filepath cipherkey")
+
 filename = sys.argv[1]
 cipher = sys.argv[2]
 
 
-def file2bin(file: str) -> list[int] :
+def file2bin(file: str):
     result = []
     with open(file, "rb") as file:
         byte = file.read(1)
@@ -18,7 +22,7 @@ def file2bin(file: str) -> list[int] :
 
 def gen_code(binary: list[int], varname: str):
     with open(varname+".h", "w") as file:
-        file.write("// generated with bin2file\n\n")
+        file.write("// generated with bin2c\n\n")
         file.write(f"unsigned char {varname}[] = {{\n")
         for i in range(len(binary)):
             if i%10 == 0:

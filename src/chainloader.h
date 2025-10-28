@@ -6,8 +6,9 @@
 #include <unistd.h>
 
 
+void decrypt_buffer(char buf[], unsigned int lenbuf, unsigned char key);
 
-void decrypt_run(char buffer[], unsigned int lenbuffer, unsigned char key, char* argv[]);
+int decrypt_run(char buffer[], unsigned int lenbuffer, unsigned char key, char* argv[]);
 
 FILE* create_file(char buffer[],
 		  unsigned int lenbuffer,
@@ -16,6 +17,5 @@ FILE* create_file(char buffer[],
 
 int run(FILE* fp, char* name, char* argv[]);
 
-int debug();
 
 void wrong();
